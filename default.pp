@@ -6,11 +6,18 @@ exec { 'apt_get_update':
 exec { 'apt_get_dist-upgrade':
         command => 'sudo apt-get dist-upgrade',
         path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
+        require => Exec['apt_get_update'],
 }
 
 package {'likewise-open':
         ensure => present,
-        require => Exec['apt_get_update'], 
+        require => Exec['apt_get_dist-upgrade'], 
+}
+
+exec { 'likewise_join_domain':
+        command => 'sudo domainjoin-cli join interlegis.gov.br gouveia',
+        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
+        require => Package['likewise-open'],
 }
 
 
