@@ -1,0 +1,10 @@
+for Ubuntu 13.10: sudo pico /etc/lightdm/lightdm.conf.d/10-ubuntu.conf
+
+[SeatDefaults]
+user-session=ubuntu
+# to disable guest login
+allow-guest=false
+# to enable user login manually
+greeter-show-manual-login=true
+
+sudo lwconfig assumeDefaultDomain true
