@@ -74,6 +74,32 @@ package {'flashplugin-installer':
 	require => Package['git'],
 }
 
+package { 'python-gpgme':
+	ensure => present,
+}
+
+exec { 'dropbox_download':
+	command => 'wget -O /tmp/dropbox_1.6.0_amd64.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb',
+	require => Package['flashplugin-installer'],
+	path => '/usr/bin',
+}
+
+exec { 'dropbox_install':
+	command => 'sudo dpkg -i /tmp/dropbox_1.6.0_amd64.deb',
+	require => Exec['dropbox_download'],
+	path => '/usr/bin',
+}
+
+/*
+user { 'gouveia':
+	ensure => 'present',
+	home   => "/home/likewise-open/INTERLEGIS/gouveia",
+	comment => 'Joao Henrique Gouveia',
+	shell  =>  '/bin/bash',,
+	managehome => 'true',
+	password => $password_hash,
+}
+*/
 
 /*
 
