@@ -90,7 +90,23 @@ exec { 'dropbox_install':
 	path => '/usr/bin',
 }
 
+package { 'vim-puppet':
+	ensure => present,
+	require => Exec['dropbox_install'],
+}
+
+package { 'libappindicator1':
+	ensure => present,
+	require => Package['vim-puppet'],
+}
+
 /*
+exec { 'puppet_vim_slink':
+	command => 'ln -s /usr/share/vim/addons/syntax/puppet.vim ~/.vim/plugin/',
+	require => Package['vim-puppet'],
+	path => '/bin',
+}
+
 user { 'gouveia':
 	ensure => 'present',
 	home   => "/home/likewise-open/INTERLEGIS/gouveia",
@@ -151,3 +167,4 @@ exec { 'copy_minidlna_conf':
 }
 
 */
+
