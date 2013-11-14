@@ -28,6 +28,12 @@ exec { 'skype_post_install':
 	path => '/usr/bin',
 }
 
+exec { 'install_sni-qt':
+	command => 'sudo apt-get install sni-qt sni-qt:386',
+	require => 'skype_post_install',
+	path => '/usr/bin'
+}
+
 /*
 
 # package example
