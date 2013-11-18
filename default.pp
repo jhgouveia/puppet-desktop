@@ -103,6 +103,11 @@ package { 'terminator':
         require => Exec['apt_upgrade'],
 }
 
+package { 'playonlinux':
+        ensure => present,
+        require => Exec['apt_upgrade'],
+}
+
 
 
 /*
