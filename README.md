@@ -1,4 +1,4 @@
 puppet
 ======
 
-Puppet scripts
+Puppet script for installing an Ubuntu Linux desktop.

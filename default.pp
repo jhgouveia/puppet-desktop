@@ -1,17 +1,17 @@
-exec { 'apt_get_update':
+exec { 'apt_update':
         command => 'sudo apt-get update',
         path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
 }
 
-exec { 'apt_get_dist-upgrade':
+exec { 'apt_upgrade':
         command => 'sudo apt-get dist-upgrade',
         path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
-        require => Exec['apt_get_update'],
+        require => Exec['apt_update'],
 }
 
 package {'likewise-open':
         ensure => present,
-        require => Exec['apt_get_dist-upgrade'], 
+        require => Exec['apt_upgrade'], 
 }
 
 package {'vim':
@@ -78,27 +78,32 @@ package { 'python-gpgme':
 	ensure => present,
 }
 
-exec { 'dropbox_download':
-	command => 'wget -O /tmp/dropbox_1.6.0_amd64.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb',
-	require => Package['flashplugin-installer'],
-	path => '/usr/bin',
-}
-
-exec { 'dropbox_install':
-	command => 'sudo dpkg -i /tmp/dropbox_1.6.0_amd64.deb',
-	require => Exec['dropbox_download'],
-	path => '/usr/bin',
-}
-
 package { 'vim-puppet':
 	ensure => present,
-	require => Exec['dropbox_install'],
+	require => Exec['apt_update'],
 }
 
 package { 'libappindicator1':
 	ensure => present,
 	require => Package['vim-puppet'],
 }
+
+package { 'vlc':
+        ensure => present,
+        require => Exec['apt_upgrade'],
+}
+
+package { 'xclip':
+        ensure => present,
+        require => Exec['apt_upgrade'],
+}
+
+package { 'terminator':
+        ensure => present,
+        require => Exec['apt_upgrade'],
+}
+
+
 
 /*
 exec { 'puppet_vim_slink':
@@ -107,10 +112,10 @@ exec { 'puppet_vim_slink':
 	path => '/bin',
 }
 
-user { 'gouveia':
+user { 'iladmin':
 	ensure => 'present',
-	home   => "/home/likewise-open/INTERLEGIS/gouveia",
-	comment => 'Joao Henrique Gouveia',
+	home   => "/home/iladmin",
+	comment => 'Administrador Interlegis',
 	shell  =>  '/bin/bash',,
 	managehome => 'true',
 	password => $password_hash,
@@ -138,33 +143,3 @@ exec { 'likewise_join_domain':
         require => Package['likewise-open'],
 }
 */
-
-
-
-
-/*
-
-package {'apache2':
-        ensure => present,
-        require => Exec['apt_get_update'], 
-}
-
-package {'minidlna':
-        ensure => present,
-        require => Package['apache2']
-}
-
-exec { 'get_minidlna_conf':
-        command => 'wget http://www.gouveia.pro/dev/minidlna.conf -P /tmp/.',
-        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
-        require => Package['minidlna']
-}
-
-exec { 'copy_minidlna_conf':
-        command => 'sudo cp /tmp/minidlna.conf /etc/.',
-        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
-        require => Exec['get_minidlna_conf']
-}
-
-*/
-
