@@ -4,7 +4,7 @@ exec { 'apt_update':
 }
 
 exec { 'apt_upgrade':
-        command => 'sudo apt-get dist-upgrade',
+        command => 'sudo apt-get -y dist-upgrade',
         path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
         require => Exec['apt_update'],
 }
@@ -119,6 +119,11 @@ package { 'pgadmin3':
 }
 
 package { 'linphone':
+	ensure => present,
+        require => Exec['apt_upgrade'],
+}
+
+package { 'ttf-mscorefonts-installer':
 	ensure => present,
         require => Exec['apt_upgrade'],
 }
