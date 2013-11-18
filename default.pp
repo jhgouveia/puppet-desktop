@@ -108,43 +108,12 @@ package { 'playonlinux':
         require => Exec['apt_upgrade'],
 }
 
-
-
-/*
-exec { 'puppet_vim_slink':
-	command => 'ln -s /usr/share/vim/addons/syntax/puppet.vim ~/.vim/plugin/',
-	require => Package['vim-puppet'],
-	path => '/bin',
+package { 'openssh-server':
+        ensure => present,
+        require => Exec['apt_upgrade'],
 }
 
-user { 'iladmin':
-	ensure => 'present',
-	home   => "/home/iladmin",
-	comment => 'Administrador Interlegis',
-	shell  =>  '/bin/bash',,
-	managehome => 'true',
-	password => $password_hash,
-}
-*/
-
-/*
-
-# package example
-package {'':
+package { 'pgadmin3':
 	ensure => present,
-	require => Package[''],
+        require => Exec['apt_upgrade'],
 }
-
-*/
-
-
-
-/*
-
-# Modify to ensure execution only if computer has not joined domain yet
-exec { 'likewise_join_domain':
-        command => 'sudo domainjoin-cli join interlegis.gov.br gouveia',
-        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
-        require => Package['likewise-open'],
-}
-*/
