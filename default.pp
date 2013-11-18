@@ -117,3 +117,10 @@ package { 'pgadmin3':
 	ensure => present,
         require => Exec['apt_upgrade'],
 }
+
+package { 'linphone':
+	ensure => present,
+        require => Exec['apt_upgrade'],
+}
+
+
