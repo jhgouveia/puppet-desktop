@@ -1,45 +1,26 @@
-/*
-exec { 'apt_get_update':
-        command => 'sudo apt-get update',
-        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
+package { 'sni-qt':
+	ensure => present,
 }
 
-exec { 'apt_get_dist-upgrade':
-        command => 'sudo apt-get dist-upgrade',
-        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
-        require => Exec['apt_get_update'],
+package { 'sni-qt:386':
+	ensure => present,
+	require => Package['sni-qt'],
 }
-*/
 
 exec { 'skype_download':
 	command => 'wget -O /tmp/skype-ubuntu-lucid_4.2.0.11-1_i386.deb http://download.skype.com/linux/skype-ubuntu-lucid_4.2.0.11-1_i386.deb',
 	path => '/usr/bin',
+	require => Package['sni-qt:386'],
 }
 
-exec { 'skype_install':
-	command => 'sudo dpkg -i /tmp/skype-ubuntu-lucid_4.2.0.11-1_i386.deb',
+package { 'skype':
+	source => '/tmp/skype-ubuntu-lucid_4.2.0.11-1_i386.deb',
 	require => Exec['skype_download'],
-	path => '/usr/bin',
 }
 
 exec { 'skype_post_install':
 	command => 'sudo apt-get -f install',
-	require => Exec['skype_install'],
+	require => Package['skype'],
 	path => '/usr/bin',
 }
 
-exec { 'install_sni-qt':
-	command => 'sudo apt-get install sni-qt sni-qt:386',
-	require => 'skype_post_install',
-	path => '/usr/bin'
-}
-
-/*
-
-# package example
-package {'':
-	ensure => present,
-	require => Package[''],
-}
-
-*/
