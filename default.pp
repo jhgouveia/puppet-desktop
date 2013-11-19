@@ -87,10 +87,6 @@ package { 'pgadmin3':
 	ensure => present,
 }
 
-package { 'linphone':
-	ensure => present,
-}
-
 class unifocus-context::msfonts {
   exec { "accept-msttcorefonts-license":
     command => "/bin/sh -c \"echo ttf-mscorefonts-installer msttcorefonts/accepted-     mscorefonts-eula select true | debconf-set-selections\""
@@ -105,4 +101,22 @@ class unifocus-context::msfonts {
 package { 'fonts-sil-gentium-basic':
 	ensure => present,
 }
+
+package { 'sflphone-gnome':
+	ensure => present,
+}
+
+package { 'curl':
+	ensure => present,
+}
+
+package { 'p7zip':
+	ensure => present,
+}
+
+package { 'p7zip-rar':
+	ensure => present,
+	require => Package['p7zip'],
+}
+
 
