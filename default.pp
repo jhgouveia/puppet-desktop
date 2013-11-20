@@ -119,4 +119,8 @@ package { 'p7zip-rar':
 	require => Package['p7zip'],
 }
 
+package { 'virtualbox':
+	ensure => present,
+}
+
 
