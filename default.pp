@@ -124,3 +124,13 @@ package { 'virtualbox':
 }
 
 
+package { 'mtp-tools':
+	ensure => present,
+}
+
+
+package { 'mtpfs':
+	ensure => present,
+}
+
+
