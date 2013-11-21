@@ -134,3 +134,8 @@ package { 'mtpfs':
 }
 
 
+package { 'gimp':
+	ensure => present,
+}
+
+
