@@ -139,3 +139,8 @@ package { 'gimp':
 }
 
 
+package { 'chromium-browser':
+	ensure => present,
+}
+
+
