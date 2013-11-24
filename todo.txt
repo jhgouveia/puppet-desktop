@@ -1,3 +1,41 @@
+vim
+jockey-common, libgl1-mesa-dri:i386, libgl1-mesa-glx:i386, libc6:i386
+jockey-common libgl1-mesa-dri libgl1-mesa-glx
+ntfs-3g
+bumblebee
+chromium-browser
+python-gpgme
+samba
+unrar
+libappindicator1
+pidgin
+ubuntu-restricted-extras
+terminator
+unity-tweak-tool 
+libappindicator1
+bumblebee-nvidia 
+libGLU
+gltron 
+libglu1-mesa
+ia32-libs
+libglu1-mesa:i386
+nvidia-prime 
+indicator-multiload
+indicator-cpufreq
+my-weather-indicator
+diodon diodon-plugins
+icedtea-7-plugin openjdk-7-jre
+nvidia-319 nvidia-settings-319 nvidia-prime
+bumblebee bumblebee-nvidia 
+alacarte 
+laptop-mode-tools
+nvidia-319-updates
+nvidia-319 nvidia-settings-319 nvidia-settings-319-updates nvidia-319-updates --purge
+filezilla
+virtualbox
+
+--------------------------------
+
 for Ubuntu 13.10: sudo pico /etc/lightdm/lightdm.conf.d/10-ubuntu.conf
 
 [SeatDefaults]
@@ -52,4 +90,3 @@ exec { 'likewise_join_domain':
         require => Package['likewise-open'],
 }
 */
-
