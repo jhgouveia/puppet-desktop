@@ -144,3 +144,8 @@ package { 'chromium-browser':
 }
 
 
+package { 'tomboy':
+	ensure => present,
+}
+
+
