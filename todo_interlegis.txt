@@ -23,10 +23,12 @@ user { 'iladmin':
         ensure => 'present',
         home   => "/home/iladmin",
         comment => 'Administrador Interlegis',
-        shell  =>  '/bin/bash',,
+	groups => 'iladmin,adm,cdrom,sudo,dip,plugdev,lpadmin,sambashare',
+        shell  =>  '/bin/bash',
         managehome => 'true',
         password => '$1$gmY2ocNe$LN.T/9qalyR2G9oAG29gp1',
 }
+
 */
 
 
