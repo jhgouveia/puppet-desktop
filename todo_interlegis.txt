@@ -1,0 +1,54 @@
+for Ubuntu 13.10: sudo pico /etc/lightdm/lightdm.conf.d/10-ubuntu.conf
+
+[SeatDefaults]
+user-session=ubuntu
+# to disable guest login
+allow-guest=false
+# to enable user login manually
+greeter-show-manual-login=true
+
+sudo lwconfig assumeDefaultDomain true
+
+
+
+
+/*
+exec { 'puppet_vim_slink':
+        command => 'ln -s /usr/share/vim/addons/syntax/puppet.vim ~/.vim/plugin/',
+        require => Package['vim-puppet'],
+        path => '/bin',
+}
+
+user { 'iladmin':
+        ensure => 'present',
+        home   => "/home/iladmin",
+        comment => 'Administrador Interlegis',
+        shell  =>  '/bin/bash',,
+        managehome => 'true',
+        password => $password_hash,
+}
+*/
+
+
+
+/*
+
+# package example
+package {'':
+        ensure => present,
+        require => Package[''],
+}
+
+*/
+
+
+
+/*
+
+# Modify to ensure execution only if computer has not joined domain yet
+exec { 'likewise_join_domain':
+        command => 'sudo domainjoin-cli join interlegis.gov.br gouveia',
+        path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:',
+        require => Package['likewise-open'],
+}
+*/
