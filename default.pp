@@ -149,3 +149,8 @@ package { 'tomboy':
 }
 
 
+package { 'davfs2':
+	ensure => present,
+}
+
+
