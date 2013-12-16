@@ -1,6 +1,4 @@
 alacarte
-bumblebee
-bumblebee-nvidia
 chromium-browser
 diodon
 diodon-plugins
@@ -24,10 +22,8 @@ libglu1-mesa:i386
 my-weather-indicator
 ntfs-3g
 nvidia-319
-nvidia-319-updates
 nvidia-prime
 nvidia-settings-319
-nvidia-settings-319-updates
 openjdk-7-jre
 pidgin
 python-gpgme
@@ -38,3 +34,14 @@ unity-tweak-tool
 unrar
 vim
 virtualbox
+
+
+----------------------------
+
+# MONTAR PEN DRIVES NO /media NO UBUNTU 13.1O
+You can do this by adding a file called (eg) /etc/udev/rules.d/99-udisks2.rules that contains:
+
+ENV{ID_FS_USAGE}=="filesystem", ENV{UDISKS_FILESYSTEM_SHARED}="1"
+
+-----------------------------
+
