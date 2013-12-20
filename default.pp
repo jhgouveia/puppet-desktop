@@ -1,91 +1,42 @@
-package {'likewise-open':
-        ensure => present,
-}
+# default.pp
 
-package {'vim':
-        ensure => present,
-}
+$packages = [	'likewise-open',
+		'vim',
+		'cifs-utils',
+		'alacarte',
+		'pidgin',
+		'openjdk-7-jre',
+		'icedtea-7-plugin',
+		'ubuntu-restricted-extras',
+		'filezilla',
+		'mysql-workbench',
+		'keepass2',
+		'git',
+		'flashplugin-installer',
+		'python-gpgme',
+		'vim-puppet',
+		'libappindicator1',
+		'vlc',
+		'xclip',
+		'terminator',
+		'playonlinux',
+		'openssh-server',
+		'pgadmin3',
+		'fonts-sil-gentium-basic',
+		'sflphone-gnome',
+		'curl',
+		'p7zip',
+		'p7zip-rar',
+		'virtualbox',
+		'mtp-tools',
+		'mtpfs',
+		'gimp',
+		'chromium-browser',
+		'tomboy',
+		'davfs2',
+        'pdftohtml'
+	] 
 
-package {'cifs-utils':
-	ensure => present,
-}
-
-package {'alacarte':
-	ensure => present,
-}
-
-package {'pidgin':
-	ensure => present,
-}
-
-package {'openjdk-7-jre':
-	ensure => present,
-}
-
-package {'icedtea-7-plugin':
-	ensure => present,
-	require => Package['openjdk-7-jre'],
-}
-
-package {'ubuntu-restricted-extras':
-	ensure => present,
-}
-
-package {'filezilla':
-	ensure => present,
-}
-
-package {'mysql-workbench':
-	ensure => present,
-}
-
-package {'keepass2':
-	ensure => present,
-}
-
-package {'git':
-	ensure => present,
-}
-
-package {'flashplugin-installer':
-	ensure => present,
-}
-
-package { 'python-gpgme':
-	ensure => present,
-}
-
-package { 'vim-puppet':
-	ensure => present,
-}
-
-package { 'libappindicator1':
-	ensure => present,
-}
-
-package { 'vlc':
-        ensure => present,
-}
-
-package { 'xclip':
-        ensure => present,
-}
-
-package { 'terminator':
-        ensure => present,
-}
-
-package { 'playonlinux':
-        ensure => present,
-}
-
-package { 'openssh-server':
-        ensure => present,
-}
-
-package { 'pgadmin3':
-	ensure => present,
-}
 
 class unifocus-context::msfonts {
   exec { "accept-msttcorefonts-license":
@@ -98,59 +49,22 @@ class unifocus-context::msfonts {
   }
 }
 
-package { 'fonts-sil-gentium-basic':
+package { $packages:
 	ensure => present,
 }
 
-package { 'sflphone-gnome':
-	ensure => present,
+Package['icedtea-7-plugin'] {
+	require => Package['openjdk-7-jre'],
 }
 
-package { 'curl':
-	ensure => present,
-}
-
-package { 'p7zip':
-	ensure => present,
-}
-
-package { 'p7zip-rar':
-	ensure => present,
+Package['p7zip-rar'] {
 	require => Package['p7zip'],
 }
 
-package { 'virtualbox':
-	ensure => present,
+
+/*
+apt::sources_list {"camptocamp":
+  ensure  => present,
+    content => 'deb http://dev.camptocamp.com/packages/ etch puppet',
 }
-
-
-package { 'mtp-tools':
-	ensure => present,
-}
-
-
-package { 'mtpfs':
-	ensure => present,
-}
-
-
-package { 'gimp':
-	ensure => present,
-}
-
-
-package { 'chromium-browser':
-	ensure => present,
-}
-
-
-package { 'tomboy':
-	ensure => present,
-}
-
-
-package { 'davfs2':
-	ensure => present,
-}
-
-
+*/
