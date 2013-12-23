@@ -36,7 +36,8 @@ $packages = [	'likewise-open',
 		'davfs2',
 		'pdftohtml',
 		'lame',
-		'ffmpeg'
+		'ffmpeg',
+		'gtkpod'
 	] 
 
 
