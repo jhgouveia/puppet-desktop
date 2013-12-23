@@ -34,7 +34,9 @@ $packages = [	'likewise-open',
 		'chromium-browser',
 		'tomboy',
 		'davfs2',
-        'pdftohtml'
+		'pdftohtml',
+		'lame',
+		'ffmpeg'
 	] 
 
 
