@@ -37,7 +37,8 @@ $packages = [	'likewise-open',
 		'pdftohtml',
 		'lame',
 		'ffmpeg',
-		'gtkpod'
+		'gtkpod',
+        'inkscape'
 	] 
 
 
