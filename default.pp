@@ -38,7 +38,12 @@ $packages = [	'likewise-open',
 		'lame',
 		'ffmpeg',
 		'gtkpod',
-        'inkscape'
+        'inkscape',
+        'libreadline-dev',
+        'libconfig-dev',
+        'libssl-dev',
+        'lua5.2',
+        'liblua5.2-dev'
 	] 
 
 
