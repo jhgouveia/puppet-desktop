@@ -38,12 +38,15 @@ $packages = [	'likewise-open',
 		'lame',
 		'ffmpeg',
 		'gtkpod',
-        'inkscape',
-        'libreadline-dev',
-        'libconfig-dev',
-        'libssl-dev',
-        'lua5.2',
-        'liblua5.2-dev'
+		'inkscape',
+		'libreadline-dev',
+		'libconfig-dev',
+		'libssl-dev',
+		'lua5.2',
+		'liblua5.2-dev',
+		'python-psycopg2',
+		'sni-qt:i386',
+		'gedit-plugins'
 	] 
 
 
