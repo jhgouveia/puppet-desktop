@@ -46,7 +46,8 @@ $packages = [	'likewise-open',
 		'liblua5.2-dev',
 		'python-psycopg2',
 		'sni-qt:i386',
-		'gedit-plugins'
+		'gedit-plugins',
+		'whois'
 	] 
 
 
