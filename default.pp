@@ -47,7 +47,8 @@ $packages = [	'likewise-open',
 		'python-psycopg2',
 		'sni-qt:i386',
 		'gedit-plugins',
-		'whois'
+		'whois',
+        'freemind'
 	] 
 
 
