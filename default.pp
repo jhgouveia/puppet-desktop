@@ -49,7 +49,8 @@ $packages = [	'likewise-open',
 		'gedit-plugins',
 		'whois',
         'freemind',
-        'nmap'
+        'nmap',
+        'gparted'
 	] 
 
 
