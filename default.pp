@@ -48,7 +48,8 @@ $packages = [	'likewise-open',
 		'sni-qt:i386',
 		'gedit-plugins',
 		'whois',
-        'freemind'
+        'freemind',
+        'nmap'
 	] 
 
 
