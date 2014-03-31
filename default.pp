@@ -50,7 +50,8 @@ $packages = [	'likewise-open',
 		'whois',
         'freemind',
         'nmap',
-        'gparted'
+        'gparted',
+        'calibre'
 	] 
 
 
