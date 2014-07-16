@@ -68,9 +68,9 @@ package { $packages:
 	ensure => present,
 }
 
-Package['icedtea-7-plugin'] {
-	require => Package['openjdk-7-jre'],
-}
+#Package['icedtea-7-plugin'] {
+#	require => Package['openjdk-7-jre'],
+#}
 
 Package['p7zip-rar'] {
 	require => Package['p7zip'],
