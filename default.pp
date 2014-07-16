@@ -3,6 +3,7 @@
 $packages = [	'likewise-open',
 		'vim',
 		'cifs-utils',
+		'dia',
 		'alacarte',
 		'pidgin',
 		'ubuntu-restricted-extras',
