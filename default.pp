@@ -1,6 +1,7 @@
 # default.pp
 
 $packages = [	'likewise-open',
+		'apache2',
 		'vim',
 		'cifs-utils',
 		'dia',
