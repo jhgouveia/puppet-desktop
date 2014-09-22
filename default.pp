@@ -35,9 +35,7 @@ $packages = [	'likewise-open',
 		'chromium-browser',
 		'tomboy',
 		'davfs2',
-		'pdftohtml',
 		'lame',
-#		'ffmpeg',
 		'gtkpod',
 		'inkscape',
 		'libreadline-dev',
@@ -49,12 +47,19 @@ $packages = [	'likewise-open',
 		'sni-qt:i386',
 		'gedit-plugins',
 		'whois',
-        'freemind',
-        'nmap',
-        'gparted',
-        'calibre'
-	] 
+	        'freemind',
+        	'nmap',
+	        'gparted',
+        	'calibre',
+		'python-pip'
+		] 
 
+
+class pip-install {
+  exec { "pip-install-packages":
+    command => "/bin/sh sudo pip install pelican markdown"
+  }
+}
 
 class unifocus-context::msfonts {
   exec { "accept-msttcorefonts-license":
