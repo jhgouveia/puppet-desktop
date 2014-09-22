@@ -51,14 +51,14 @@ $packages = [	'likewise-open',
         	'nmap',
 	        'gparted',
         	'calibre',
-		'python-pip'
+		'python-pip',
+                'tree'
 		] 
 
 
-class pip-install {
-  exec { "pip-install-packages":
-    command => "/bin/sh sudo pip install pelican markdown"
-  }
+exec { "pip-install":
+  command => "pip install pelican markdown",
+  path    => "/usr/bin/"
 }
 
 class unifocus-context::msfonts {
