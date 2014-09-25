@@ -52,7 +52,8 @@ $packages = [	'likewise-open',
 	        'gparted',
         	'calibre',
 		'python-pip',
-                'tree'
+                'tree',
+                'meld'
 		] 
 
 
