@@ -2,6 +2,7 @@
 
 $packages = [	'likewise-open',
 		'apache2',
+                'bpython3',
 		'vim',
 		'cifs-utils',
 		'dia',
