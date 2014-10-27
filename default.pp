@@ -48,13 +48,15 @@ $packages = [   'apache2',
         		'gedit-plugins',
                 'whois',
         	    'freemind',
+                'mencoder',
                 'nmap',
             	'gparted',
                 'calibre',
                 'python-pip',
                 'tree',
                 'meld',
-                'openvpn'
+                'openvpn',
+                'yad'
             ]
 
 
@@ -63,10 +65,12 @@ exec { "pip-install":
   path    => "/usr/bin/"
 }
 
+
 class unifocus-context::msfonts {
   exec { "accept-msttcorefonts-license":
     command => "/bin/sh -c \"echo ttf-mscorefonts-installer msttcorefonts/accepted-     mscorefonts-eula select true | debconf-set-selections\""
   }
+
 
   package { "msttcorefonts":
     ensure  => installed,
@@ -74,22 +78,27 @@ class unifocus-context::msfonts {
   }
 }
 
+
 package { $packages:
 	ensure => present,
 }
 
-#Package['icedtea-7-plugin'] {
-#	require => Package['openjdk-7-jre'],
-#}
 
 Package['p7zip-rar'] {
 	require => Package['p7zip'],
 }
 
 
-/*
-apt::sources_list {"camptocamp":
-  ensure  => present,
-    content => 'deb http://dev.camptocamp.com/packages/ etch puppet',
-}
-*/
+# A INSTALAR
+# ppa:webupd8team/y-ppa-manager
+
+
+#Package['icedtea-7-plugin'] {
+#	require => Package['openjdk-7-jre'],
+#}
+
+
+#apt::sources_list {"camptocamp":
+#  ensure  => present,
+#    content => 'deb http://dev.camptocamp.com/packages/ etch puppet',
+#}
