@@ -17,6 +17,7 @@ $packages = [
         		'gedit-plugins',
         		'gimp',
         		'git',
+                'gksu',
                 'gnucash',
             	'gparted',
                 'gtkpod',
@@ -56,8 +57,7 @@ $packages = [
                 'virtualbox',
         		'vlc',
                 'whois',
-                'xclip',
-                'yad'
+                'xclip'
             ]
 
 
