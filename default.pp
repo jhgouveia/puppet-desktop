@@ -25,6 +25,7 @@ $packages = [
                 'gtkpod',
             	'inkscape',
                 'keepass2',
+                'kolourpaint4',
             	'lame',
                 'libappindicator1',
             	'libconfig-dev',
