@@ -2,6 +2,7 @@
 
 $packages = [
         	    'alacarte',
+                'atom',
                 'apache2',
                 'bpython3',
                 'calibre',
