@@ -2,7 +2,7 @@
 
 $packages = [
         	    'alacarte',
-                'atom',
+                'android-tools-adb',
                 'apache2',
                 'bpython3',
                 'calibre',
