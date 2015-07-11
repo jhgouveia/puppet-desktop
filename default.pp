@@ -61,6 +61,7 @@ $packages = [
             	'tomboy',
                 'tree',
             	'ubuntu-restricted-extras',
+                'unity-tweak-tool',
 #		        'vagrant',
                 'vim',
             	'vim-puppet',
