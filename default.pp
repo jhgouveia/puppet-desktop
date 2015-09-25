@@ -2,6 +2,12 @@
 
 include apt
 
+apt::ppa { 'ppa:diesch/testing': }
+
+apt::ppa { 'ppa:atareao/atareao': }
+
+apt::ppa { 'ppa:jconti/recent-notifications': }
+
 $packages = [
         	    'alacarte',
                 'android-tools-adb',
@@ -104,14 +110,17 @@ package { 'classicmenu-indicator':
     require => Apt::Ppa['ppa:diesch/testing']
 }
 
+package { 'touchpad-indicator':
+    require => Apt::Ppa['ppa:atareao/atareao']
+}
+
+package { 'indicator-notifications':
+    require => Apt::Ppa['ppa:jconti/recent-notifications']
+}
 
 Package['p7zip-rar'] {
 	require => Package['p7zip'],
 }
-
-
-apt::ppa { 'ppa:diesch/testing': }
-
 
 # A INSTALAR
 # ppa:webupd8team/y-ppa-manager
