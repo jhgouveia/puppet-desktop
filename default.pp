@@ -13,7 +13,6 @@ $packages = [
                 'dia',
         		'easytag',
                 'filezilla',
-#	    	'fing',
             	'flashplugin-installer',
         	    'fonts-sil-gentium-basic',
             	'freemind',
@@ -24,6 +23,7 @@ $packages = [
                 'gnucash',
             	'gparted',
                 'gtkpod',
+                'indicator-multiload',
             	'inkscape',
                 'keepass2',
                 'kolourpaint4',
@@ -35,11 +35,12 @@ $packages = [
                 'libssl-dev',
         	    'lua5.2',
                 'meld',
-#                'mencoder',
+                'mplayer2',
                 'mtpfs',
             	'mtp-tools',
+                'my-weather-indicator',
             	'mysql-workbench',
-		'nfs-common',
+		        'nfs-common',
                 'nmap',
             	'openssh-server',
                 'openvpn',
@@ -57,12 +58,14 @@ $packages = [
 	        	'ripperx',
                 'sflphone-gnome',
                 'sni-qt:i386',
+                'sound-juicer',
         	    'terminator',
+                'sqlitebrowser',
             	'tomboy',
                 'tree',
             	'ubuntu-restricted-extras',
                 'unity-tweak-tool',
-#		        'vagrant',
+		        'vagrant',
                 'vim',
             	'vim-puppet',
                 'virtualbox',
@@ -73,7 +76,7 @@ $packages = [
 
 
 exec { "pip-install":
-  command => "pip install pelican markdown",
+  command => "pip install pelican markdown virtualenv ipython django",
   path    => "/usr/bin/"
 }
 
