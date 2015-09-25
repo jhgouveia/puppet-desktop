@@ -1,5 +1,7 @@
 # default.pp
 
+include apt
+
 $packages = [
         	    'alacarte',
                 'android-tools-adb',
@@ -75,19 +77,19 @@ $packages = [
             ]
 
 
-exec { "pip-install":
-  command => "pip install pelican markdown virtualenv ipython django",
-  path    => "/usr/bin/"
+exec { 'pip-install':
+  command => 'pip install pelican markdown virtualenv ipython django',
+  path    => '/usr/bin/'
 }
 
 
 class unifocus-context::msfonts {
-  exec { "accept-msttcorefonts-license":
-    command => "/bin/sh -c \"echo ttf-mscorefonts-installer msttcorefonts/accepted-     mscorefonts-eula select true | debconf-set-selections\""
+  exec { 'accept-msttcorefonts-license':
+    command => '/bin/sh -c \'echo ttf-mscorefonts-installer msttcorefonts/accepted-     mscorefonts-eula select true | debconf-set-selections\''
   }
 
 
-  package { "msttcorefonts":
+  package { 'msttcorefonts':
     ensure  => installed,
     require => Exec['accept-msttcorefonts-license']
   }
@@ -98,10 +100,17 @@ package { $packages:
 	ensure => present,
 }
 
+package { 'classicmenu-indicator':
+    require => Apt::Ppa['ppa:diesch/testing']
+}
+
 
 Package['p7zip-rar'] {
 	require => Package['p7zip'],
 }
+
+
+apt::ppa { 'ppa:diesch/testing': }
 
 
 # A INSTALAR
@@ -113,7 +122,7 @@ Package['p7zip-rar'] {
 #}
 
 
-#apt::sources_list {"camptocamp":
+#apt::sources_list {'camptocamp':
 #  ensure  => present,
 #    content => 'deb http://dev.camptocamp.com/packages/ etch puppet',
 #}

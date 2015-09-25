@@ -11,6 +11,9 @@ then
 	#Install Puppet
 	sudo apt-get install puppet
 
+    #Install PuppetLabs-APT Module
+    sudo puppet module install puppetlabs-apt
+
 	cd /tmp
 	wget https://github.com/jhgouveia/puppet-desktop/blob/master/default.pp
 	sudo puppet apply /tmp/default.pp
