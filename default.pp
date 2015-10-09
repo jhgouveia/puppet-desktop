@@ -114,9 +114,9 @@ package { 'touchpad-indicator':
     require => Apt::Ppa['ppa:atareao/atareao']
 }
 
-package { 'indicator-notifications':
-    require => Apt::Ppa['ppa:jconti/recent-notifications']
-}
+#package { 'indicator-notifications':
+#    require => Apt::Ppa['ppa:jconti/recent-notifications']
+#}
 
 Package['p7zip-rar'] {
 	require => Package['p7zip'],
